@@ -1,7 +1,6 @@
-import PNotify from '@pnotify/core/dist/PNotify.js';
-import '../../node_modules/@pnotify/core/BrightTheme.css';
+import {error} from '../../node_modules/@pnotify/core';
+import '../../node_modules/@pnotify/core/dist/BrightTheme.css';
 
-// Configuring PNotify Stack
 const bottomRightStack = {
   dir1: 'up',
   dir2: 'left',
@@ -13,11 +12,18 @@ const bottomRightStack = {
   context: document.body,
 };
 
+
 export default function showError(errorMessage) {
-  PNotify.error({
+  error({
+    type: 'error',
     text: errorMessage,
-    title: 'Oops!',
-    delay: 4000,
+    delay: 3000,
+    closer: false,
+    closerHover: true,
+    sticker: false,
+    addClass: 'notification',
+    icon: false,
+    width: '250px',
     stack: bottomRightStack,
   });
 }
