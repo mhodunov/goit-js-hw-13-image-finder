@@ -26,8 +26,9 @@ function showSearchResult() {
     .then(markup => {
       markupRender(markup, galleryListRef);
       if (pixabayApi.pageNumber > 2) {
+        // метод scrollTo возвращает страницу на фиксированную позицию, поэтому решил использовать scrollBy
         window.scrollBy({
-          top: window.innerHeight - 110,
+          top: window.innerHeight - 100,
           behavior: 'smooth',
         });
       }
